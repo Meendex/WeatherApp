@@ -11,7 +11,7 @@ import Combine
 struct DetailScreenSwiftUIView: View {
     
    
-    @ObservableObject private var viewModel: WeatherViewModel
+    @ObservedObject var viewModel:  WeatherViewModel
     
     var body: some View {
         VStack {
