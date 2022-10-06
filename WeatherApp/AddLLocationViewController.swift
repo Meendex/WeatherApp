@@ -17,7 +17,7 @@ class AddLLocationViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     
     
-    @Published var location: String = ""
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()

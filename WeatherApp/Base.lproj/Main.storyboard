@@ -16,48 +16,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XmR-f4-CKb">
-                                <rect key="frame" x="0.0" y="64" width="414" height="34.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRf-9f-T4d" userLabel="Test">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVF-Ef-HHh">
-                                        <rect key="frame" x="138" y="0.0" width="138" height="34.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-Zr-7Mz">
-                                        <rect key="frame" x="276" y="0.0" width="138" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Add Location">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="addLocationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="26e-pS-Sat"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVF-Ef-HHh">
+                                <rect key="frame" x="172.5" y="54" width="69" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-Zr-7Mz">
+                                <rect key="frame" x="274" y="47.5" width="124" height="34.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add Location">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addLocationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="26e-pS-Sat"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OeD-VA-o8N"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XmR-f4-CKb" firstAttribute="top" secondItem="OeD-VA-o8N" secondAttribute="top" constant="20" id="3zb-5t-cJQ"/>
-                            <constraint firstItem="XmR-f4-CKb" firstAttribute="leading" secondItem="OeD-VA-o8N" secondAttribute="leading" id="VsC-gP-JoE"/>
-                            <constraint firstItem="OeD-VA-o8N" firstAttribute="trailing" secondItem="XmR-f4-CKb" secondAttribute="trailing" id="XBp-3m-hGv"/>
+                            <constraint firstItem="yhz-Zr-7Mz" firstAttribute="top" secondItem="wVF-Ef-HHh" secondAttribute="bottom" constant="-27" id="Ext-N1-nnD"/>
+                            <constraint firstItem="wVF-Ef-HHh" firstAttribute="centerX" secondItem="WNn-Y3-GCl" secondAttribute="centerX" id="Kmj-QJ-Nox"/>
+                            <constraint firstItem="yhz-Zr-7Mz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wVF-Ef-HHh" secondAttribute="trailing" constant="8" symbolic="YES" id="aVh-rg-Nj1"/>
+                            <constraint firstItem="wVF-Ef-HHh" firstAttribute="top" secondItem="OeD-VA-o8N" secondAttribute="top" constant="10" id="aju-1Z-XSW"/>
+                            <constraint firstItem="OeD-VA-o8N" firstAttribute="trailing" secondItem="yhz-Zr-7Mz" secondAttribute="trailing" constant="16" id="srH-bB-zC3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="q3I-ik-M5V"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="93"/>
+            <point key="canvasLocation" x="18.840579710144929" y="92.410714285714278"/>
         </scene>
         <!--AddL Location View Controller-->
         <scene sceneID="dIa-Ja-HR9">
