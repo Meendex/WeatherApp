@@ -16,19 +16,20 @@ struct DetailScreenSwiftUIView: View {
     var body: some View {
         
         VStack {
-            Text(viewModel.cityName)
+          
+            Text(viewModel.locationName)
                 .font(.system(size: 35))
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding()
-            Text(viewModel.temperature)
-                .font(.system(size: 75))
+            Text(viewModel.curentTemperature)
+                .font(.system(size: 100))
                 .bold()
             Text(viewModel.weatherIcon)
-                .font(.system(size: 70))
+                .font(.system(size: 150))
                 .padding()
             Text(viewModel.weatherDescription)
-                .font(.system(size: 20))
+                .font(.system(size: 30))
                 
         }.onAppear(perform: viewModel.refresh)
     }
