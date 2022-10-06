@@ -60,6 +60,7 @@ struct APIMain: Decodable {
     let temp: Double
 }
 
+
 struct APIWeater: Decodable {
     let description: String
     let iconName: String

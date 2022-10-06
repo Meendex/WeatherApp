@@ -19,8 +19,8 @@ private let iconMap = [
     "Mist": "☁️"]
 
 public class WeatherViewModel: ObservableObject {
-    @Published var cityName: String = "Location"
-    @Published var temperature: String = "--"
+    @Published var locationName: String = "Location"
+    @Published var curentTemperature: String = "--"
     @Published var weatherDescription: String = "--"
     @Published var weatherIcon: String = defaultIcon
     
@@ -29,11 +29,11 @@ public class WeatherViewModel: ObservableObject {
         self.weatherService = weatherService
     }
     public func refresh(){
-        weatherService.loadWeatherData{weather in DispatchQueue.main.async {
-            self.cityName = weather.city
-            self.temperature = "\(weather.temperature)°C"
-            self.weatherDescription = weather.description.capitalized
-            self.weatherIcon = iconMap[weather.iconName] ?? defaultIcon
+        weatherService.loadWeatherData{[weak self] weather in DispatchQueue.main.async {
+            self?.locationName = weather.locationName
+            self?.curentTemperature = "\(weather.curentTemperature)°C"
+            self?.weatherDescription = weather.weatherDescription.capitalized
+            self?.weatherIcon = iconMap[weather.weatherIcon] ?? defaultIcon
         }}
     }
 }
