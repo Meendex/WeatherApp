@@ -8,15 +8,21 @@
 import UIKit
 import SwiftUI
 
-class ViewController: UIViewController {
-
+class MainScreenViewController: UIViewController {
   
+    
+    @IBAction func addLocationButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let addLocationViewController = storyboard.instantiateViewController(withIdentifier: "addLocation")
+        self.present(addLocationViewController, animated: true, completion: nil)
+    }
+    
+    
+    
     let weatherViewModel = WeatherViewModel(weatherService: WeatherService())
-    
-    
-    
-    
+
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let controller = UIHostingController(rootView: DetailScreenSwiftUIView(viewModel: weatherViewModel))
@@ -26,8 +32,8 @@ class ViewController: UIViewController {
         controller.didMove(toParent: self)
         
         NSLayoutConstraint.activate([
-            controller.view.widthAnchor.constraint(equalToConstant: 200),
-            controller.view.heightAnchor.constraint(equalToConstant: 100),
+            controller.view.widthAnchor.constraint(equalToConstant: 300),
+            controller.view.heightAnchor.constraint(equalToConstant: 200),
             controller.view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             controller.view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)])
     }

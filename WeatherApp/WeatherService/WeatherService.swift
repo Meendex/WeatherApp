@@ -10,9 +10,11 @@ import CoreLocation
 
 public final class WeatherService: NSObject {
     
-    //API: https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}&units={metric}
+    //APICoordinatesRequest: https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}&units={metric}
+    //APIByLocationRequest: https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}&units={metric}
     private let locationManager = CLLocationManager()
     private let APIKey = "0603f06f5336bb4554604ac1fd9d6e48"
+    private let location = ""
     private var callback: ((WeatherModel) -> Void)?
     
     public override init(){
@@ -25,8 +27,18 @@ public final class WeatherService: NSObject {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
-    private func makeDataRequest(forCoordinates coordinates: CLLocationCoordinate2D) {
+    private func makeDataRequestWithCoodinates(forCoordinates coordinates: CLLocationCoordinate2D) {
         guard let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(coordinates.latitude)&lon=\(coordinates.longitude)&appid=\(APIKey)&units=metric".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return }
+        guard let url = URL(string: urlString) else {return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard error == nil, let data = data else { return}
+            if let response = try? JSONDecoder().decode(APIResponse.self, from: data){
+                self.callback?(WeatherModel(response: response))
+            }
+        } .resume()
+    }
+    private func makeDataRequestWithLocation(forCoordinates coordinates: CLLocationCoordinate2D) {
+        guard let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(location)&appid=\(APIKey)&units=metric".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return }
         guard let url = URL(string: urlString) else {return }
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil, let data = data else { return}
@@ -41,7 +53,7 @@ extension WeatherService: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]
     ) {
         guard let location = locations.first else {return }
-        makeDataRequest(forCoordinates: location.coordinate)
+        makeDataRequestWithCoodinates(forCoordinates: location.coordinate)
     }
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Something went wrong: \(error.localizedDescription)")
@@ -64,7 +76,6 @@ struct APIWeater: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case description
-        case iconName = "main"
-        
+        case iconName = "main"        
     }
 }

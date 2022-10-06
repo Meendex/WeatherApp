@@ -14,17 +14,6 @@ struct DetailScreenSwiftUIView: View {
     @ObservedObject var viewModel:  WeatherViewModel
     
     var body: some View {
-//        VStack {
-//            HStack{
-//
-//            Button{
-//
-//            } label: {
-//                Text("<Back").font(.system(size: 30))
-//
-//            }
-//
-//            }
         
         VStack {
             Text(viewModel.cityName)
@@ -34,7 +23,7 @@ struct DetailScreenSwiftUIView: View {
                 .font(.system(size: 75))
                 .bold()
             Text(viewModel.weatherIcon)
-                .font(.largeTitle)
+                .font(.system(size: 50))
                 .padding()
             Text(viewModel.weatherDescription)
                 
