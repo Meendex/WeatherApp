@@ -14,6 +14,18 @@ struct DetailScreenSwiftUIView: View {
     @ObservedObject var viewModel:  WeatherViewModel
     
     var body: some View {
+//        VStack {
+//            HStack{
+//
+//            Button{
+//
+//            } label: {
+//                Text("<Back").font(.system(size: 30))
+//
+//            }
+//
+//            }
+        
         VStack {
             Text(viewModel.cityName)
                 .font(.largeTitle)
@@ -28,6 +40,9 @@ struct DetailScreenSwiftUIView: View {
                 
         }.onAppear(perform: viewModel.refresh)
     }
+        
+    
+        
 }
 
 struct DetailScreenSwiftUIView_Previews: PreviewProvider {

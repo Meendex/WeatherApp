@@ -10,7 +10,7 @@ import CoreLocation
 
 public final class WeatherService: NSObject {
     
-    //API: https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+    //API: https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}&units={metric}
     private let locationManager = CLLocationManager()
     private let APIKey = "0603f06f5336bb4554604ac1fd9d6e48"
     private var callback: ((WeatherModel) -> Void)?

@@ -17,7 +17,7 @@ private let iconMap = [
     "Clouds": "☁️"]
 
 public class WeatherViewModel: ObservableObject {
-    @Published var cityName: String = "City Name"
+    @Published var cityName: String = "Location"
     @Published var temperature: String = "--"
     @Published var weatherDescription: String = "--"
     @Published var weatherIcon: String = defaultIcon
