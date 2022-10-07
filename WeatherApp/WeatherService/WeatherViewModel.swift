@@ -24,6 +24,7 @@ public class WeatherViewModel: ObservableObject {
     @Published var feelsLike: String = "--"
     @Published var tempMin: String = "--"
     @Published var tempMax: String = "--"
+    @Published var pressure: String = "----"
     @Published var weatherDescription: String = "--"
     @Published var weatherIcon: String = defaultIcon
     
@@ -38,6 +39,7 @@ public class WeatherViewModel: ObservableObject {
             self?.feelsLike = "Feels like: \(weather.feelsLike)°C"
             self?.tempMin = "L: \(weather.tempMin)°C"
             self?.tempMax = "H: \(weather.tempMax)°C  "
+            self?.pressure = "Pressure: \(weather.pressure)hPA"
             self?.weatherDescription = weather.weatherDescription.capitalized
             self?.weatherIcon = iconMap[weather.weatherIcon] ?? defaultIcon
         }}
