@@ -16,9 +16,6 @@ class AddLLocationViewController: UIViewController {
     
     @IBOutlet weak var locationTextField: UITextField!
     
-    
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +24,7 @@ class AddLLocationViewController: UIViewController {
     @IBAction func addLocationButton(_ sender: Any) {
         
     }
-
+    
 }
 extension AddLLocationViewController: AddLocation {
     func clearData(){

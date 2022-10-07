@@ -10,7 +10,6 @@ import Combine
 
 struct DetailScreenSwiftUIView: View {
     
-   
     @ObservedObject var viewModel:  WeatherViewModel
     
     var body: some View {
