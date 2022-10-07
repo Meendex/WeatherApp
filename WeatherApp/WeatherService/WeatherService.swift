@@ -14,15 +14,15 @@ public final class WeatherService: NSObject {
     //APIByLocationRequest: https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}&units={metric}
     private let locationManager = CLLocationManager()
     private let APIKey = "0603f06f5336bb4554604ac1fd9d6e48"
-    private var callback: ((WeatherModel) -> Void)?
+    private var completionHandler: ((WeatherModel) -> Void)?
     
     public override init(){
         super .init()
         locationManager.delegate = self
     }
     
-    public func loadWeatherData(_ callback: @escaping((WeatherModel) -> Void)) {
-        self.callback = callback
+    public func loadWeatherData(_ completionHandler: @escaping((WeatherModel) -> Void)) {
+        self.completionHandler = completionHandler
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
@@ -32,7 +32,7 @@ public final class WeatherService: NSObject {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil, let data = data else { return}
             if let response = try? JSONDecoder().decode(APIResponse.self, from: data){
-                self.callback?(WeatherModel(response: response))
+                self.completionHandler?(WeatherModel(response: response))
             }
         } .resume()
     }
@@ -71,7 +71,6 @@ struct APIMain: Decodable {
         case pressure
     }
 }
-
 
 struct APIWeater: Decodable {
     let description: String
