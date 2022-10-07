@@ -30,14 +30,14 @@ struct DetailScreenSwiftUIView: View {
                 .padding()
             Text(viewModel.weatherDescription)
                 .font(.system(size: 30))
+            Text(viewModel.feelsLike)
+                .font(.system(size: 30))
+            Text("\(viewModel.tempMax)\(viewModel.tempMin)")
+                .font(.system(size: 30))
                 
         }.onAppear(perform: viewModel.refresh)
     }
-        
-    
-        
 }
-
 struct DetailScreenSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         DetailScreenSwiftUIView(viewModel: WeatherViewModel(weatherService: WeatherService()))
