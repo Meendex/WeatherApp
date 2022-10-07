@@ -30,9 +30,12 @@ struct DetailScreenSwiftUIView: View {
                 .padding()
             Text(viewModel.weatherDescription)
                 .font(.system(size: 30))
+            Text(" ")
             Text(viewModel.feelsLike)
                 .font(.system(size: 30))
             Text("\(viewModel.tempMax)\(viewModel.tempMin)")
+                .font(.system(size: 30))
+            Text(viewModel.pressure)
                 .font(.system(size: 30))
                 
         }.onAppear(perform: viewModel.refresh)

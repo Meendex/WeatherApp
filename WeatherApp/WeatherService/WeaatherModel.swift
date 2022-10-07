@@ -13,6 +13,7 @@ public struct WeatherModel {
     let feelsLike: String
     let tempMin: String
     let tempMax: String
+    let pressure: String
     let weatherDescription: String
     let weatherIcon: String
     
@@ -22,6 +23,7 @@ public struct WeatherModel {
         feelsLike = "\(Int(response.main.feelsLike))"
         tempMin = "\(Int(response.main.tempMin))"
         tempMax = "\(Int(response.main.tempMax))"
+        pressure = "\(Int(response.main.pressure))"
         weatherDescription = response.weather.first?.description ?? ""
         weatherIcon = response.weather.first?.iconName ?? ""
     }

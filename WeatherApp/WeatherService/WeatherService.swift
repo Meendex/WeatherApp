@@ -61,12 +61,14 @@ struct APIMain: Decodable {
     let feelsLike: Double
     let tempMin: Double
     let tempMax: Double
+    let pressure: Int
     
     enum CodingKeys: String, CodingKey {
         case temp
         case feelsLike = "feels_like"
         case tempMin = "temp_min"
         case tempMax = "temp_max"
+        case pressure
     }
 }
 
@@ -80,3 +82,5 @@ struct APIWeater: Decodable {
         case iconName = "main"        
     }
 }
+
+//https://api.openweathermap.org/data/2.5/weather?q=London&appid=0603f06f5336bb4554604ac1fd9d6e48&units=metric
