@@ -10,8 +10,6 @@ import CoreLocation
 
 public final class WeatherService: NSObject {
     
-    //APICoordinatesRequest: https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}&units={metric}
-    //APIByLocationRequest: https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}&units={metric}
     private let locationManager = CLLocationManager()
     private let APIKey = "0603f06f5336bb4554604ac1fd9d6e48"
     private var completionHandler: ((WeatherModel) -> Void)?
@@ -26,6 +24,11 @@ public final class WeatherService: NSObject {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
+    
+//    enum APICalls {
+//        case APICoordinatesRequest: String = "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}&units={metric}"
+//        case APIByLocationRequest: String = "https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}&units={metric}"
+//    }
     private func makeDataRequestWithCoodinates(forCoordinates coordinates: CLLocationCoordinate2D) {
         guard let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(coordinates.latitude)&lon=\(coordinates.longitude)&appid=\(APIKey)&units=metric".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return }
         guard let url = URL(string: urlString) else {return }
