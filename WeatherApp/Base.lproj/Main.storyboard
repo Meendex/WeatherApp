@@ -12,7 +12,7 @@
         <!--Weather-->
         <scene sceneID="sPG-Bc-mBB">
             <objects>
-                <viewController id="nVL-L7-k9d" customClass="MainScreenViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainScreenViewController" id="nVL-L7-k9d" customClass="MainScreenViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dou-a8-85o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

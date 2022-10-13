@@ -26,7 +26,7 @@ class AddLocationViewModel {
         return locations[index].locationName ?? ""
     }
 //    func deleteLocationName() {
-//        locations = Location.deleteLocationName(locationName: Location, moc: CoreDataManager.shared.persistentContainer.viewContext)
+//        locations = Location.deleteLocationName(locationName:<#Location#>, moc: CoreDataManager.shared.persistentContainer.viewContext)
 //    }
     
 }

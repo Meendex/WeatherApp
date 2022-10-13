@@ -20,6 +20,7 @@ class AddLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         setupNavBar()
     }
     
@@ -41,7 +42,7 @@ class AddLocationViewController: UIViewController {
         }
     }
 }
-extension AddLocationViewController: UITableViewDataSource {
+extension AddLocationViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.locationsCount
     }
@@ -56,12 +57,14 @@ extension AddLocationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            //to do delete core data
+            //to do delete core data viewModel.deleteLoctionName()
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
             tableView.endUpdates()
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        //to do send location data to the viewModel
+        self.navigationController?.popViewController(animated: true)
     }
 }
