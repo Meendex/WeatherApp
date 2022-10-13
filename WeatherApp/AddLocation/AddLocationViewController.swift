@@ -16,6 +16,7 @@ class AddLocationViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let viewModel = AddLocationViewModel()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class AddLocationViewController: UIViewController {
     
     
     @IBAction func addLocationButtonAction(_ sender: Any) {
+        var _: () = viewModel.getLocationItem(locationItem: locationTextField.text)
         if let locationName = locationTextField.text, !locationName.isEmpty {
             viewModel.saveLocation(locationName: locationName)
             self.navigationController?.popViewController(animated: true)
@@ -65,6 +67,9 @@ extension AddLocationViewController: UITableViewDataSource, UITableViewDelegate 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //to do send location data to the viewModel
+        print(viewModel.getLocationName(index: indexPath.row))
+        
         self.navigationController?.popViewController(animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

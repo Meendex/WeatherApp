@@ -177,11 +177,11 @@
 		487262B628EF3EEE002D4AE2 /* WeatherService */ = {
 			isa = PBXGroup;
 			children = (
+				487262C128F699BA002D4AE2 /* GenNetworkManager.swift */,
 				487262A128EE2F59002D4AE2 /* WeatherService.swift */,
 				487262A328EE2F80002D4AE2 /* WeaatherModel.swift */,
 				487262A528EE2FBC002D4AE2 /* WeatherViewModel.swift */,
 				4872629F28EE2F13002D4AE2 /* DetailScreenSwiftUIView.swift */,
-				487262C128F699BA002D4AE2 /* GenNetworkManager.swift */,
 			);
 			path = WeatherService;
 			sourceTree = "<group>";
