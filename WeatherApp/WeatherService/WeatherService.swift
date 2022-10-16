@@ -13,7 +13,7 @@ public final class WeatherService: NSObject {
     private let addLocationViewModel = AddLocationViewModel()
     private let locationManager = CLLocationManager()
     private let APIKey = "0603f06f5336bb4554604ac1fd9d6e48"
-    private let locationKey = ""//"Milton Keynes"
+    private let locationKey = "Hitchin"//"Milton Keynes"
     private var completionHandler: ((WeatherModel) -> Void)?
 //    let coordinatesAPI = "https://api.openweathermap.org/data/2.5/weather?lat=\(coordinates.latitude)&lon=\(coordinates.longitude)&appid=\(APIKey)&units=metric".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
 //    let locationAPI = "https://api.openweathermap.org/data/2.5/weather?q=\(String(describing: locationKey))&appid=\(APIKey)&units=metric".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)

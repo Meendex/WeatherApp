@@ -16,7 +16,8 @@ private let iconMap = [
     "Clear": "☀️",
     "Clouds": "☁️",
     "Haze": "☁️",
-    "Mist": "☁️"]
+    "Mist": "☁️",
+    "Fog": "☁️"]
 
 public class WeatherViewModel: ObservableObject {
     @Published var locationName: String = "Location"
